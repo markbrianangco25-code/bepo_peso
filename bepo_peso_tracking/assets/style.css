@@ -1,0 +1,185 @@
+/* BEPO PESO - UNIVERSAL CYBER GLASS v5.6 
+   STABLE CONSOLIDATED VERSION (USER + ADMIN)
+   - FIXED: Dashboard Button Size & Tab Alignment
+   - FIXED: Form Input Background & Overlap
+   - Glassmorphism UI & Stealth Hide
+*/
+
+:root {
+    --bg: #0b0f1a;
+    --glass: rgba(23, 32, 53, 0.7);
+    --neon: #00f2ff;
+    --neon-blue: #3b82f6;
+    --neon-glow: rgba(0, 242, 255, 0.4);
+    --text-main: #f1f5f9;
+    --text-dim: #94a3b8;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    /* Office Colors */
+    --pbmo: #8b5cf6;
+    --phrmo: #ec4899;
+    --padmo: #10b981;
+    --go: #f59e0b;
+}
+
+/* --- RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+
+body {
+    background-color: var(--bg);
+    background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f1a 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    position: relative; 
+    z-index: 10; 
+}
+
+/* --- NUCLEAR HIDE v4.1 --- */
+body.tracker-page > h1, body.tracker-page > h2, body.tracker-page > h3, 
+body.tracker-page > h4, body.tracker-page > p, body.tracker-page > b,
+body.tracker-page > i, body.tracker-page > font, body.tracker-page > center,
+body.tracker-page > span:not(.logo span), body.tracker-page > div:not(.container), 
+#status, #loading, .status-msg, .loading-text, [id*="loading"], [id*="status"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* --- LOGO --- */
+.logo { font-size: 2.2rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 10px; }
+.logo span { color: var(--neon); text-shadow: 0 0 15px var(--neon-glow); }
+
+/* --- DASHBOARD HEADER --- */
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+/* --- OFFICE TABS (FIXED) --- */
+.office-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    clear: both;
+}
+
+.office-tabs a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+}
+
+.office-tabs a:hover { transform: translateY(-3px); color: #fff; }
+
+/* Active States */
+.office-tabs a.active[href*="PBMO"], .office-tabs a[href*="PBMO"]:hover { background: var(--pbmo); color: #fff; box-shadow: 0 0 15px var(--pbmo); border-color: var(--pbmo); }
+.office-tabs a.active[href*="PHRMO"], .office-tabs a[href*="PHRMO"]:hover { background: var(--phrmo); color: #fff; box-shadow: 0 0 15px var(--phrmo); border-color: var(--phrmo); }
+.office-tabs a.active[href*="PADMO"], .office-tabs a[href*="PADMO"]:hover { background: var(--padmo); color: #fff; box-shadow: 0 0 15px var(--padmo); border-color: var(--padmo); }
+.office-tabs a.active[href*="GO"], .office-tabs a[href*="GO"]:hover { background: var(--go); color: #fff; box-shadow: 0 0 15px var(--go); border-color: var(--go); }
+
+/* --- GLASS CARD & TABLE --- */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.table-container { 
+    width: 100%; 
+    overflow-x: auto; 
+    border-radius: 20px; 
+    background: rgba(0,0,0,0.2); 
+    border: 1px solid rgba(255,255,255,0.05);
+}
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 18px; color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; border-bottom: 2px solid rgba(255,255,255,0.05); }
+td { padding: 18px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
+
+/* --- BUTTONS (FIXED FOR DASHBOARD AND FORM) --- */
+.btn-add, .btn-process {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(135deg, var(--neon), var(--neon-blue));
+    color: #020617;
+    box-shadow: 0 5px 15px var(--neon-glow);
+    white-space: nowrap;
+}
+
+/* Button behavior inside a Form (Add Record Page) */
+form .btn-add, form .btn-save {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-add:hover, .btn-process:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--neon); }
+
+/* --- FORM INPUTS (SCREENSHOT FIX) --- */
+form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--neon);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+input, textarea, select {
+    width: 100%; 
+    padding: 14px 18px; 
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 12px; 
+    color: #fff !important; 
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus { border-color: var(--neon); box-shadow: 0 0 15px var(--neon-glow); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-actions { flex-direction: column; text-align: center; gap: 20px; }
+    .btn-add { width: 100%; justify-content: center; }
+}
